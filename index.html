@@ -1,4 +1,21 @@
+---
+---
 <!DOCTYPE html>
-<body>
-  <h1>hello world.</h1>
-</body>
+<html>
+  <head>
+    <title>Theophilus Thinks About it</title>
+  </head>
+  <body>
+    <h1>Think about it</h1>
+    <dl>
+      <dd>Posts</dd>
+      <dt>
+        <ul>
+          {% for post in site.posts limit: 7 %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </dt>
+    </dl>
+  </body>
+</html>

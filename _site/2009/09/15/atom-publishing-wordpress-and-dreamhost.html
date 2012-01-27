@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <body>
+  <p>I&#8217;ve been working on automating the system my &#8220;church&#8221;:http://tulsachristianfellowship.com uses for publishing &#8220;sermons&#8221;:http://tcf.theophil.us. When trying to publish podcast entries via WordPress Atom support, I discovered an issue with Dreamhost and http basic auth described &#8220;here&#8221;:http://www.besthostratings.com/articles/http-auth-php-cgi.html.</p>
+
+<p>As you can see, his solution requires both some ModRewrite love and some PHP script changes. Well those lovely fellas on the Wordpress team already picked up their end of the deal, so all I ended up having to do is add this segment to the <code>.htaccess</code> file in the root of my WordPress installation.</p>
+<pre class='markdown-html-error' style='border: solid 3px red; background-color: pink'>REXML could not parse this XML/HTML: 
+&lt;macro:code lang=&quot;apache&quot;&gt;
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine on
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
+&lt;/IfModule
+&lt;/macro:code&gt;
+
+Now I can automagically publish sermons from my command line.  I feel a power trip coming on.</pre>
+  </body>
+</html>

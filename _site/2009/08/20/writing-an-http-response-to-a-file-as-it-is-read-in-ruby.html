@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <body>
+  <p>You have yourself a URI.</p>
+<pre class='markdown-html-error' style='border: solid 3px red; background-color: pink'>REXML could not parse this XML/HTML: 
+&lt;macro:code lang=&quot;ruby&quot;&gt;URI.parse(&quot;http://theophil.us&quot;)&lt;/macro:code&gt;</pre>
+<p>You probably know how to grab a file via GET with ruby:</p>
+<pre class='markdown-html-error' style='border: solid 3px red; background-color: pink'>REXML could not parse this XML/HTML: 
+&lt;macro:code lang=&quot;ruby&quot;&gt;Net::HTTP.get(target)&lt;/macro:code&gt;</pre>
+<p>But what if the result is HUGE, like say, 300mb of xml? you probably want to flush the response to disk as it is handed to you, like this: (not immediately obvious to me from the &#8220;docs&#8221;:http://www.ruby-doc.org/core/classes/Net/HTTP.html)</p>
+<pre class='markdown-html-error' style='border: solid 3px red; background-color: pink'>REXML could not parse this XML/HTML: 
+&lt;macro:code lang=&quot;ruby&quot;&gt;
+  def write_to_file(target, file_name)
+    Net::HTTP.start(target.host, target.port) do |http|
+      File.open( file_name, &apos;w&apos;) do |file|
+        http.request_get(target.request_uri) do |response|
+          response.read_body do |body|
+            file.write(body)
+          end
+        end
+      end
+    end
+  end
+&lt;/macro:code&gt;</pre>
+  </body>
+</html>

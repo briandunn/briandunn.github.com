@@ -1,0 +1,10 @@
+---
+layout: post
+title: Embacon
+---
+<p>
+Ever wanted to fill a text area with text, and you didn't really care what the text said? Or maybe you do care, and you really want it to be full of meaty words?
+</p>
+<p>
+Just pick up <a href='http://embacon.heroku.com'>this here bookmarklet</a> focus a text input, and embacon!
+</p>
